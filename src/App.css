@@ -9,9 +9,10 @@
 
 .home,
 .aboutme{
-  display: flex;
-  height: 90vh;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
+  height: 100vh;
+  width: 100vw;
+  align-items: top;
+  justify-content: top;
+  padding: 75px 0px 70px 250px;
+  font-size: 2.5rem;
 }
