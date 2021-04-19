@@ -36,8 +36,21 @@ function NavBar() {
                     <li className='navbar-toggle'>
                         <Link to="#" className='menu-bars'>
                             <FaIcons.FaBars/>
+                            <span
+                                style={{
+                                paddingLeft: 30,
+                                visibility: sidebar ? "inherit" : "hidden",
+                                transitionDelay: "0.4s",
+                                opacity: sidebar ? 1 : 0,
+                                fontSize: 20,
+                                color: "#FFFFFF",
+                                textDecoration: 'none'
+                                }}>
+                                    1829013
+                            </span>
                         </Link>
                     </li>
+                    <li/>
                     {SideBarData.map((item,index)=>{
                         return (
                             <li key={index} className={item.cName}>

@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import {Data} from '../data'
 import DatePicker from "react-datepicker";
 import * as ImIcons from 'react-icons/im';
+import * as BsIcons from 'react-icons/bs';
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -9,6 +10,7 @@ import "react-datepicker/dist/react-datepicker.css";
 function Home() {
     const [searchTerm,setSearchTerm]=useState("");
     const [startDate, setStartDate] = useState(new Date());
+    const [endDate, setEndDate] = useState(new Date());
     const [dataList,setDataList]=useState(Data);
 
     const [name,setName] = useState("");
@@ -45,21 +47,42 @@ function Home() {
                 Home
             </div>
             <div className='paper'>
-                <input 
-                 className='otherinput'
-                 type='text'
-                 placeholder= "Search name.."
-                 onChange={
-                     (event)=>{
-                         setSearchTerm(event.target.value);
-                     }
-                 }
+                    <div
+                    style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    }}>
+                    
+                    <span>
+                        <BsIcons.BsSearch size={20} style={{ fill: 'black' }} />
+                    </span>
+
+                    <input 
+                        className='otherinput'
+                        type='text'
+                        placeholder= "Search name.."
+                        onChange={
+                            (event)=>{
+                                setSearchTerm(event.target.value);
+                            }
+                        }
                  />
+                </div>
+                
+                 
+                 <span style={{padding: '20px'}}>
                  From:
-                 <DatePicker selected={startDate}  className='otherinput' onChange={date => setStartDate(date)} />
+                    <DatePicker selected={startDate}  className='otherinput' onChange={date => setStartDate(date)} />
+                    <ImIcons.ImCalendar size={20} style={{ fill: 'black' }}/>
+                 </span>
+                
+                 <span style={{padding: '20px'}}>
                  To:
-                 <DatePicker selected={startDate}  className='otherinput' onChange={date => setStartDate(date)} />
+                    <DatePicker selected={endDate}  className='otherinput' onChange={date => setEndDate(date)} />
+                    <ImIcons.ImCalendar size={20} style={{ fill: 'black' }}/>
+                 </span>
             </div>
+            <br/>
             <div className='paper'>
                 <table>
                     <tr>
@@ -96,12 +119,11 @@ function Home() {
                 </table>
                 <div>
                     <table>
-                        {/* <td><input placeholder="Enter sl no"  className='addinput' onChange={(event)=>{setSlNo(event.target.value)}}/></td> */}
-                        <td><input placeholder="Enter Name"   className='addinput' onChange={(event)=>{setName(event.target.value)}}/></td>
-                        <td><input placeholder="Enter Attending"  className='addinput' onChange={(event)=>{setAttending(event.target.value)}}/></td>
+                        <td><input placeholder=""   className='addinput' onChange={(event)=>{setName(event.target.value)}}/></td>
+                        <td><input placeholder=""  className='addinput' onChange={(event)=>{setAttending(event.target.value)}}/></td>
                          <td><DatePicker selected={selectDate}   className='addinput' onChange={(date) => {setSelectedDate(date)}}/></td> 
-                        <td><input placeholder="Enter Start time"  className='addinput' onChange={(event)=>{setStartTime(event.target.value)}}/></td>
-                        <td><input placeholder="Enter End Time"  className='addinput' onChange={(event)=>{setEndTime(event.target.value)}}/></td>
+                        <td><input placeholder="--:--" className='addinput' onChange={(event)=>{setStartTime(event.target.value)}} style={{textAlign:'center'}}/></td>
+                        <td><input placeholder="--:--"  className='addinput' onChange={(event)=>{setEndTime(event.target.value)}} style={{textAlign:'center'}}/></td>
                         <td><button onClick={addData}>Add</button></td>
                     </table>
                     

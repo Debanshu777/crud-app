@@ -9,8 +9,8 @@
   }
   
   .menu-bars {
+    text-decoration: none;
     margin-left: 2rem;
-    font-size: 2rem;
     background: none;
   }
   
@@ -21,14 +21,15 @@
     display: flex;
     justify-content: center;
     position: fixed;
+    text-decoration: none;
     top: 0;
     left: -80%;
-    transition: 850ms;
+    transition: 1000ms;
   }
   
   .nav-menu.active {
     left: 0;
-    transition: 350ms;
+    transition: 1000ms;
   }
   
   .nav-text {
@@ -67,6 +68,7 @@
   .nav-icon a:hover {
     background-color: #133B5C;
   }
+  
   
   .nav-menu-items {
     width: 100%;
